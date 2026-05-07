@@ -1,0 +1,52 @@
+-- 用户表
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  nickname VARCHAR(50) NOT NULL,
+  role VARCHAR(20) NOT NULL DEFAULT 'admin',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 图书表
+CREATE TABLE IF NOT EXISTS books (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  author VARCHAR(255) NOT NULL,
+  isbn VARCHAR(50),
+  category VARCHAR(50),
+  price DECIMAL(10, 2) DEFAULT 0,
+  stock INTEGER DEFAULT 0,
+  publish_date DATE,
+  description TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 物流订单表
+CREATE TABLE IF NOT EXISTS orders (
+  id SERIAL PRIMARY KEY,
+  external_code VARCHAR(100) UNIQUE,
+  sender_name VARCHAR(100) NOT NULL,
+  sender_phone VARCHAR(30) NOT NULL,
+  sender_address TEXT NOT NULL,
+  receiver_name VARCHAR(100) NOT NULL,
+  receiver_phone VARCHAR(30) NOT NULL,
+  receiver_address TEXT NOT NULL,
+  weight DECIMAL(10, 2) NOT NULL CHECK (weight > 0),
+  quantity INTEGER NOT NULL CHECK (quantity > 0),
+  temp_zone VARCHAR(20) NOT NULL CHECK (temp_zone IN ('常温', '冷藏', '冷冻')),
+  remark TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 导入模板表
+CREATE TABLE IF NOT EXISTS templates (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  headers TEXT[] NOT NULL,
+  column_mappings JSONB NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);

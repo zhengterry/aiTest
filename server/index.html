@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>万能导入 - API 服务</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 520px;
+      width: 90%;
+    }
+    .icon { font-size: 48px; margin-bottom: 16px; }
+    h1 { font-size: 24px; margin-bottom: 8px; color: #333; }
+    .status { color: #52c41a; font-weight: 600; font-size: 16px; margin-bottom: 24px; }
+    .status::before { content: '● '; }
+    .divider { border-top: 1px solid #f0f0f0; margin: 20px 0; }
+    .api-list { text-align: left; }
+    .api-list h3 { font-size: 14px; color: #999; margin-bottom: 12px; }
+    .api-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      background: #f9f9fb;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .method {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      margin-right: 12px;
+      min-width: 48px;
+      text-align: center;
+    }
+    .get { background: #52c41a; }
+    .post { background: #1890ff; }
+    .put { background: #faad14; color: #333; }
+    .del { background: #ff4d4f; }
+    .path { color: #555; font-family: 'Courier New', monospace; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">🚀</div>
+    <h1>万能导入 API 服务</h1>
+    <p class="status">服务运行中</p>
+    <div class="divider"></div>
+    <div class="api-list">
+      <h3>认证接口</h3>
+      <div class="api-item"><span class="method post">POST</span><span class="path">/api/auth/login</span></div>
+    </div>
+    <div class="divider"></div>
+    <div class="api-list">
+      <h3>图书接口</h3>
+      <div class="api-item"><span class="method get">GET</span><span class="path">/api/books</span></div>
+      <div class="api-item"><span class="method post">POST</span><span class="path">/api/books</span></div>
+      <div class="api-item"><span class="method get">GET</span><span class="path">/api/books/:id</span></div>
+      <div class="api-item"><span class="method put">PUT</span><span class="path">/api/books/:id</span></div>
+      <div class="api-item"><span class="method del">DELETE</span><span class="path">/api/books/:id</span></div>
+      <div class="api-item"><span class="method post">POST</span><span class="path">/api/books/import</span></div>
+    </div>
+    <div class="divider"></div>
+    <div class="api-list">
+      <h3>物流订单接口</h3>
+      <div class="api-item"><span class="method get">GET</span><span class="path">/api/orders</span></div>
+      <div class="api-item"><span class="method post">POST</span><span class="path">/api/orders</span></div>
+      <div class="api-item"><span class="method get">GET</span><span class="path">/api/orders/:id</span></div>
+      <div class="api-item"><span class="method put">PUT</span><span class="path">/api/orders/:id</span></div>
+      <div class="api-item"><span class="method del">DELETE</span><span class="path">/api/orders/:id</span></div>
+      <div class="api-item"><span class="method post">POST</span><span class="path">/api/orders/import</span></div>
+    </div>
+  </div>
+</body>
+</html>
