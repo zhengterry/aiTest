@@ -5,7 +5,7 @@ import { createServer } from 'http'
 const PORT = 3000
 
 function getSql() {
-  const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL
+  const connectionString = 'postgresql://neondb_owner:npg_8luJ7FeZTgvV@ep-dawn-wind-aqtfodbh-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
   if (!connectionString) throw new Error('DATABASE_URL is not configured')
   return neon(connectionString)
 }

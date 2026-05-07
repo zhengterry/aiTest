@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ success: false, message: 'Method not allowed' })
   }
 
-  const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL
+  const connectionString = 'postgresql://neondb_owner:npg_8luJ7FeZTgvV@ep-dawn-wind-aqtfodbh-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
   if (!connectionString) {
     return res.status(500).json({ success: false, message: 'DATABASE_URL is not configured' })
   }
